@@ -36,10 +36,12 @@ body{
 	height: 400px;
 	width: 423px;
 	background-color: transparent;
+	background-size:cover;
+	background-repeat:no-repeat;
 	display: inline-block;
-	border: 1px solid green;
+	
 	text-align:center;
-	margin-left: 37%;
+	margin-left: 35%;
 }
 input{
 
