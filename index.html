@@ -1,23 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>
-		
-	</title>
+	<title>Tamagachi Game</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 </head>
-<body>
-	<div id = "backView"> 
-		<input type="text" name="textField" placeholder="Enter Pet Name">
+<body background="file:///Users/abdulkhaliqafolayan/Desktop/Trekkers//tahagami-mini-project/images/mk9-background-mileena.jpg">
+	<h1 id = "Head">Welcome To Tamagachi Game</h1>
+	<div id = "properties">
 
+		<ul>
+			<LI id = "name">Name</LI>
+			<LI>Age <span = id = "age">0</span></LI>
+			<LI>Hunger <span = id = "hunger">0</span></LI>
+			<LI>Boredomness <span = id = "boredomess">0</span></LI>
+			<LI>Sleepiness <span = id = "sleepiness">0</span></LI>
+
+		</ul>
 
 	</div>
+
+	<div id = "contentH">
+		
+		<input id = "inputName" type="text" name="textField" placeholder="Enter Pet Name">
+	</div>
+
 	<div id = "buttonDiv">
-			<button class = "addPetButton"> Add Pet </button>
-			<button class = "feed"> Feed Pet </button>
-			<button class = "sleep"> Nap </button>
-			<button class = "lights"> Light Switch </button>
+		<button class = "addPetButton"> Add Pet </button>
+		<button class = "feed"> Feed Pet </button>
+		<button class = "sleep"> Nap </button>
+		<button class = "lights"> Light Switch </button>
 	</div>
+		<h1 id = "nameHeader">Name</h1>
+	<div id = "displayGif">
+		
+	</div>
+
+
+	
 </body>
 <script type="text/javascript" src = "js/app.js "></script>
 </html>
