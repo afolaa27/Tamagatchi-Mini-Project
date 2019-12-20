@@ -17,6 +17,8 @@ const game = {
 	boredom:0,
 	age:0,
 	roundC: 1000,
+	timeLight:0,
+	validate:false,
 
 
 	startGame (){
@@ -31,8 +33,8 @@ const game = {
 		let setPetName = document.querySelector('#Head')
 		
 		petNameValue.petName = getPetName.value
-		console.log(petNameValue.petName);
 		let petLocate = document.querySelector('#name')
+
 		petLocate.innerText = petNameValue.petName
 		setPetName.innerText = "Code Name " + petNameValue.petName 
 		getPetName.value = ""
@@ -40,8 +42,7 @@ const game = {
 		let statusUdate = document.querySelector('#status')
 		statusUdate.innerText = petNameValue.petName + " Created "
 
-		let locateDisp = document.querySelector('#displayGif')
-		//console.log(locateBack);
+		let locateDisp = document.querySelector('#displayGif')	
 		locateDisp.style.backgroundImage = "url(https://media.giphy.com/media/i0W1wW0VqgsPS/giphy.gif)"
 
 		
@@ -65,6 +66,17 @@ const game = {
 		
 
 	},
+	play(){
+		let locateDisp = document.querySelector('#displayGif')
+		//console.log(locateBack);
+		locateDisp.style.backgroundImage = "url(https://media.giphy.com/media/abonYnUKXMFLa/giphy.gif)"
+		
+		let statusUdate = document.querySelector('#status')
+		statusUdate.innerText =" Fun is good ... "
+		this.boredom--
+		let petLocateHunger = document.querySelector('#boredom')
+		petLocateHunger.innerText = this.boredom
+	},
 
 	
 	feed(){
@@ -81,10 +93,9 @@ const game = {
 	sleep(){
 
 		let locateDisp = document.querySelector('#displayGif')
-		//console.log(locateBack);
+		
 		locateDisp.style.backgroundImage = "url(https://media.giphy.com/media/LgcDsIX4q6LiU/giphy.gif)"
 
-		
 		let statusUdate = document.querySelector('#status')
 		statusUdate.innerText =" Agent Hibenating "
 
@@ -96,7 +107,7 @@ const game = {
 	timeInterval(time){
 		this.timerID = setInterval(() => {
 			this.time++
-
+			this.timeLight++
 			if (this.time % 6 ===0){
 				this.age++
 
@@ -109,6 +120,11 @@ const game = {
 			}	
 			if (this.time % 2 === 0 ){	
 				this.boredom++
+			} if (this.timeLight % 6 === 0){
+
+				this.validate = true
+				this.lights(this.validate)
+
 			}	
 			
 			else {
@@ -122,17 +138,38 @@ const game = {
 	killpetCheck(){
 
 		if (this.sleepiness === 10 || this.hunger ===10 || this.boredom === 10){
-			clearInterval(this.timerID)
-			let locateBack = document.querySelector('#displayGif')
-			let statusUdate = document.querySelector('#status')
-			statusUdate.innerText =" You killed An Agent " 
-			
-			console.log(locateBack);
-			locateBack.style.backgroundImage = "url(https://media.giphy.com/media/41xheAhKk10i20ymQt/giphy.gif)"
+				clearInterval(this.timerID)
+				let locateBack = document.querySelector('#displayGif')
+				let statusUdate = document.querySelector('#status')
+				statusUdate.innerText =" You killed An Agent " 
+				
+				console.log(locateBack);
+				locateBack.style.backgroundImage = "url(https://media.giphy.com/media/41xheAhKk10i20ymQt/giphy.gif)"
 
-		// }
+			// }
+		}
+	},
+	lights(validate){
+
+		
+		
+		let locateBack = document.querySelector('#displayGif')
+		console.log(locateBack);
+		
+		locateBack.style.opacity = ".1"
+		console.log(this.time);
+
+		let statusUdate = document.querySelector('#status')
+		statusUdate.innerText =" Lights Off"
+
+		if (validate){
+			console.log(locateBack);
+			locateBack.style.opacity = "1.0"
+		}
+		
+
+
 	}
-}
 
 }
 
@@ -145,22 +182,12 @@ $('.feed'). on('click',() => {
 })
 $('.sleep'). on('click',() => {
 	game.sleep()
+})
+$('.play'). on('click',() => {
+	game.play()
 
 })
 $('.lights'). on('click',() => {
-	let statusUdate = document.querySelector('#status')
-	statusUdate.innerText =" Lights Off"
-	
-	let locateBack = document.querySelector('#displayGif')
-	console.log(locateBack);
-	// locateBack.style.backgroundColor = "rgba(255,255,255,0.5"
-	locateBack.style.opacity = ".1"
+	game.lights()
 	//locateBack.backGroundColor = 'yellow'
-})
-$('.lights'). on('dblclick',() => {
-	
-	let locateBack = document.querySelector('#displayGif')
-	console.log(locateBack);
-	locateBack.style.opacity = "1.0"
-	
 })

@@ -34,14 +34,14 @@ body{
 }
 #displayGif{
 	height: 400px;
-	width: 423px;
+	width: 535px;
 	background-color: transparent;
+	border: transparent;
 	background-size:cover;
 	background-repeat:no-repeat;
 	display: inline-block;
-	
 	text-align:center;
-	margin-left: 35%;
+	margin-left: 31.5%;
 }
 input{
 
