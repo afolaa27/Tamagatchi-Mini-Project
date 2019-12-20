@@ -20,16 +20,16 @@ const game = {
 
 
 	startGame (){
-
+		this.addPet()
 		this.age()
-		this.addPetName()
 		this.timeInterval()
+		
 
 
 	},
 
 	
-	addPetName (){
+	addPet(){
 		let petNameValue = new Tamagachi()
 		const getPetName = document.querySelector('#inputName')
 		let setPetName = document.querySelector('#Head')
@@ -43,33 +43,42 @@ const game = {
 
 		let statusUdate = document.querySelector('#status')
 		statusUdate.innerText = petNameValue.petName + " Created "
+
+		let locateDisp = document.querySelector('#displayGif')
+		//console.log(locateBack);
+		locateDisp.style.backgroundImage = "url(https://media.giphy.com/media/i0W1wW0VqgsPS/giphy.gif)"
+
+
+		
 	},
 
 	timeInterval(time){
 		this.timerID = setInterval(() => {
 			this.time++
-
-			if(this.time > 10){
-				console.log("i do my job");
+			if(this.time > 11){
+				
+				
 				clearInterval(this.timerID)
-
 			}
-			else{
-				console.log(this.time);
-				console.log('i work');
+			else {
+				
 				this.printAttrValue()
 			}
-		},time)
+
+			
+		},this.time)
 		
 	},
 	printAttrValue(){
-		let ageVal = document.querySelector("#age")
-		ageVal.innerText = this.time	
+		this.age()
+			
 		//console.log(ageVal.innerText);
 
 	},
 
 	age(){
+		let ageVal = document.querySelector("#age")
+		ageVal.innerText = this.time
 		const ageTime = 1000
 		this.timeInterval(ageTime)
 
