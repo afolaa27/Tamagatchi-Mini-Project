@@ -1,11 +1,8 @@
 console.log("Tamagachi-App");
 
 class Tamagachi {
-	constructor (name, time){
-		this.hunger = 0
-		this.sleepiness = 0
-		this.boredom = 0
-		this.age = 0
+	constructor (name){
+		
 		this.time = 0
 		this.petName = name;
 	}
@@ -15,35 +12,21 @@ const game = {
 
 	time : 0,
 	timerID: 0,
+	hunger:0,
+	sleepiness:0,
+	boredom:0,
+	age:0,
+	roundC: 1000,
+
 
 	startGame (){
-		this.timerID = setInterval(() => {
-
-			let timeValue = new Tamagachi()
-
-			timeValue.time++
-			console.log(timeValue.time);
-
-			if(this.time = 10){
-				clearInterval(this.timerID)
-
-			}
-
-		},10)
-
-
-		console.log('i work'); 
-
 		this.addPetName()
-		
-
-		
-
+		this.timeInterval()
+		 
 	},
 
 	
 	addPetName (){
-
 		let petNameValue = new Tamagachi()
 		const getPetName = document.querySelector('#inputName')
 		let setPetName = document.querySelector('#Head')
@@ -53,16 +36,36 @@ const game = {
 		let petLocate = document.querySelector('#name')
 		petLocate.innerText = petNameValue.petName
 		setPetName.innerText = "Code Name " + petNameValue.petName 
-		
-		//this.printAttrValue()
+		getPetName.value = ""
+
+		let statusUdate = document.querySelector('#status')
+		statusUdate.innerText = petNameValue.petName + " Created "
+	},
+
+	printAttrValue(){
+		let ageVal = document.querySelector("#age")
+		ageVal.innerText = this.time	
+		console.log(ageVal.innerText);
 
 	},
-	printAttrValue(){
-			let ageVal = document.querySelector("")
-			console.log(ageVal.value);
 
+	timeInterval(time){
+		this.timerID = setInterval(() => {
+			this.time++
+			console.log(this.time);
+		if(this.time > 10){
+			console.log("i do my job");
+			clearInterval(this.timerID)
 
+		}else{
 
+			this.printAttrValue()
+		}
+		}time)
+		console.log('i work');
+	},
+	age(){
+		
 	}
 
 
@@ -72,7 +75,6 @@ const game = {
 }
 
 $('.addPetButton'). on('click', ()=>{
-
-
+	
 	game.startGame()
 })
