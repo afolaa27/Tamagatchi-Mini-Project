@@ -16,7 +16,7 @@ const game = {
 	sleeps:0,
 	boredom:0,
 	age:0,
-	roundC: 1000,
+	
 	timeLight:0,
 	validate:false,
 
@@ -59,7 +59,7 @@ const game = {
 		petLocateSleepiness.innerText = this.sleeps
 
 		let ageVal = document.querySelector("#age")
-		roundC = 10000
+		
 		ageVal.innerText = this.age
 		
 		this.killpetCheck()
@@ -96,8 +96,8 @@ const game = {
 		
 		locateDisp.style.backgroundImage = "url(https://media.giphy.com/media/LgcDsIX4q6LiU/giphy.gif)"
 
-		let statusUdate = document.querySelector('#status')
-		statusUdate.innerText =" Agent Hibenating "
+		let statuUdate = document.querySelector('#status')
+		statuUdate.innerText =" Agent Hibenating "
 
 		let petLocateSleepiness = document.querySelector('#sleepiness')
 		this.sleeps--
@@ -132,21 +132,20 @@ const game = {
 				this.printAttrValue()
 			}
 			
-		},this.roundC)
+		}, 1000)
 		
 	},
 	killpetCheck(){
 
 		if (this.sleepiness === 10 || this.hunger ===10 || this.boredom === 10){
-				clearInterval(this.timerID)
-				let locateBack = document.querySelector('#displayGif')
-				let statusUdate = document.querySelector('#status')
-				statusUdate.innerText =" You killed An Agent " 
-				
-				console.log(locateBack);
-				locateBack.style.backgroundImage = "url(https://media.giphy.com/media/41xheAhKk10i20ymQt/giphy.gif)"
+			clearInterval(this.timerID)
+			let locateBack = document.querySelector('#displayGif')
+			let statusUdate = document.querySelector('#status')
+			statusUdate.innerText =" You killed An Agent " 
 
-			// }
+			locateBack.style.backgroundImage = "url(https://media.giphy.com/media/41xheAhKk10i20ymQt/giphy.gif)"
+
+
 		}
 	},
 	lights(validate){
@@ -164,6 +163,7 @@ const game = {
 
 		if (validate){
 			console.log(locateBack);
+			statusUdate.innerText =" Lights on"
 			locateBack.style.opacity = "1.0"
 		}
 		
@@ -185,7 +185,6 @@ $('.sleep'). on('click',() => {
 })
 $('.play'). on('click',() => {
 	game.play()
-
 })
 $('.lights'). on('click',() => {
 	game.lights()
