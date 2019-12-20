@@ -11,7 +11,7 @@ class Tamagachi {
 const game = {
 
 	time : 0,
-	timerID: 0,
+	timerID: "",
 	hunger:0,
 	sleepiness:0,
 	boredom:0,
@@ -20,9 +20,12 @@ const game = {
 
 
 	startGame (){
+
+		this.age()
 		this.addPetName()
 		this.timeInterval()
-		 
+
+
 	},
 
 	
@@ -42,30 +45,39 @@ const game = {
 		statusUdate.innerText = petNameValue.petName + " Created "
 	},
 
-	printAttrValue(){
-		let ageVal = document.querySelector("#age")
-		ageVal.innerText = this.time	
-		console.log(ageVal.innerText);
-
-	},
-
 	timeInterval(time){
 		this.timerID = setInterval(() => {
 			this.time++
-			console.log(this.time);
-		if(this.time > 10){
-			console.log("i do my job");
-			clearInterval(this.timerID)
 
-		}else{
+			if(this.time > 10){
+				console.log("i do my job");
+				clearInterval(this.timerID)
 
-			this.printAttrValue()
-		}
-		}time)
-		console.log('i work');
-	},
-	age(){
+			}
+			else{
+				console.log(this.time);
+				console.log('i work');
+				this.printAttrValue()
+			}
+		},time)
 		
+	},
+	printAttrValue(){
+		let ageVal = document.querySelector("#age")
+		ageVal.innerText = this.time	
+		//console.log(ageVal.innerText);
+
+	},
+
+	age(){
+		const ageTime = 1000
+		this.timeInterval(ageTime)
+
+	},
+	feed(){
+		const feedTime = 1000
+		this.setInterval(feedTime)
+
 	}
 
 
@@ -77,4 +89,24 @@ const game = {
 $('.addPetButton'). on('click', ()=>{
 	
 	game.startGame()
+})
+$('.feed'). on('click',() => {
+
+})
+$('.sleep'). on('click',() => {
+
+})
+$('.lights'). on('click',() => {
+	
+	let locateBack = document.querySelector('#displayGif')
+	console.log(locateBack);
+	locateBack.style.backgroundColor = "rgba(255,255,255,0.5"
+	//locateBack.backGroundColor = 'yellow'
+})
+$('.lights'). on('dblclick',() => {
+	
+	let locateBack = document.querySelector('#displayGif')
+	console.log(locateBack);
+	locateBack.style.backgroundColor = "transparent"
+	
 })
